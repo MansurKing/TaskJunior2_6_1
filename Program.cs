@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace TaskJunior2._6
 {
@@ -17,11 +17,11 @@ namespace TaskJunior2._6
 
             string userInput;
 
-            float rublToDollar = 90.20f;
+            float rublToDollar = 1 / 90.20f;
             float dollarToRubl = 85.70f;
-            float rublToYuan = 13.16f;
+            float rublToYuan = 1 / 13.16f;
             float yuanToRubl = 11.83f;
-            float rublToEuro = 101.40f;
+            float rublToEuro = 1 / 101.40f;
             float euroToRubl = 96.20f;
             float rublesInWallet;
             float dollarsInWallet;
@@ -61,7 +61,6 @@ namespace TaskJunior2._6
                 switch (userInput)
                 {
                     case CommandRublToDollar:
-
                         Console.WriteLine("Обмен рублей на доллары.");
 
                         Console.Write("\nСколько вы хотите обменять: ");
@@ -70,7 +69,7 @@ namespace TaskJunior2._6
                         if (rublesInWallet >= exchangeCurrencyCount)
                         {
                             rublesInWallet -= exchangeCurrencyCount;
-                            dollarsInWallet += exchangeCurrencyCount / rublToDollar;
+                            dollarsInWallet += exchangeCurrencyCount * rublToDollar;
                         }
                         else
                         {
@@ -79,11 +78,9 @@ namespace TaskJunior2._6
 
                         Console.WriteLine($"\nВаш баланс: \n{rublesInWallet} рублей, \n{dollarsInWallet} долларов.\n" +
                                           $"{yuanInWallet} юаней,\n{euroInWallet} евро.\n");
-
                         break;
 
                     case CommandDollarToRubl:
-
                         Console.WriteLine("Обмен долларов на рубли.");
 
                         Console.Write("\nСколько вы хотите обменять: ");
@@ -101,11 +98,9 @@ namespace TaskJunior2._6
 
                         Console.WriteLine($"\nВаш баланс: \n{rublesInWallet} рублей, \n{dollarsInWallet} долларов.\n" +
                                           $"{yuanInWallet} юаней,\n{euroInWallet} евро.\n");
-
                         break;
 
                     case CommandRublToYuan:
-
                         Console.WriteLine("Обмен рублей на юани.");
 
                         Console.Write("\nСколько вы хотите обменять: ");
@@ -114,7 +109,7 @@ namespace TaskJunior2._6
                         if (rublesInWallet >= exchangeCurrencyCount)
                         {
                             rublesInWallet -= exchangeCurrencyCount;
-                            yuanInWallet += exchangeCurrencyCount / rublToYuan;
+                            yuanInWallet += exchangeCurrencyCount * rublToYuan;
                         }
                         else
                         {
@@ -123,11 +118,9 @@ namespace TaskJunior2._6
 
                         Console.WriteLine($"\nВаш баланс: \n{rublesInWallet} рублей, \n{yuanInWallet} юаней,\n" +
                                           $"{dollarsInWallet} долларов,\n{euroInWallet} евро.\n");
-
                         break;
 
                     case CommandYuanToRubl:
-
                         Console.WriteLine("Обмен юаней на рубли.");
 
                         Console.Write("\nСколько вы хотите обменять: ");
@@ -145,11 +138,9 @@ namespace TaskJunior2._6
 
                         Console.WriteLine($"\nВаш баланс: \n{rublesInWallet} рублей, \n{yuanInWallet} юаней,\n" +
                                           $"{dollarsInWallet} долларов,\n{euroInWallet} евро.\n");
-
                         break;
 
                     case CommandRublToEuro:
-
                         Console.WriteLine("Обмен рублей на евро.");
 
                         Console.Write("\nСколько вы хотите обменять: ");
@@ -158,7 +149,7 @@ namespace TaskJunior2._6
                         if (rublesInWallet >= exchangeCurrencyCount)
                         {
                             rublesInWallet -= exchangeCurrencyCount;
-                            euroInWallet += exchangeCurrencyCount / rublToEuro;
+                            euroInWallet += exchangeCurrencyCount * rublToEuro;
                         }
                         else
                         {
@@ -167,11 +158,9 @@ namespace TaskJunior2._6
 
                         Console.WriteLine($"\nВаш баланс: \n{rublesInWallet} рублей, \n{euroInWallet} евро,\n" +
                                           $"{yuanInWallet} юаней,\n{dollarsInWallet} долларов.\n");
-
                         break;
 
                     case CommandEuroToRubl:
-
                         Console.WriteLine("Обмен евро на рубли.");
 
                         Console.Write("\nСколько вы хотите обменять: ");
@@ -189,27 +178,20 @@ namespace TaskJunior2._6
 
                         Console.WriteLine($"\nВаш баланс: \n{rublesInWallet} рублей, \n{euroInWallet} евро,\n" +
                                           $"{yuanInWallet} юаней,\n{dollarsInWallet} долларов.\n");
-
                         break;
 
                     case CommandCleaningConsole:
-
                         Console.Clear();
-
                         break;
 
                     case CommandExitFromConsole:
-
                         isWork = false;
                         Console.WriteLine("Программа завершена.");
-
                         break;
 
                     default:
-
                         Console.WriteLine("Вы ввели не верную комманду!!!\n" +
                                           "Введите номер команды предложенных ниже)))\n");
-
                         break;
                 }
             }
